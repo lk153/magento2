@@ -20,6 +20,8 @@ db:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+        - ./data:/var/lib/mysql
     ports:
       - "3306:3306"
 
