@@ -30,6 +30,7 @@ debezium:
       CONFIG_STORAGE_TOPIC: "my_connect_configs"
       OFFSET_STORAGE_TOPIC: "my_connect_offsets"
       STATUS_STORAGE_TOPIC: "my_connect_statuses"
+      BOOTSTRAP_SERVERS: "35.197.145.200:9092"
     links:
         - db
     ports:
