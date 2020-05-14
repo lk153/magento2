@@ -22,3 +22,15 @@ db:
       MYSQL_ROOT_PASSWORD: 123456
     ports:
       - "3306:3306"
+
+debezium:
+    image: debezium/connect:1.1
+    environment:
+      GROUP_ID: 1
+      CONFIG_STORAGE_TOPIC: "my_connect_configs"
+      OFFSET_STORAGE_TOPIC: "my_connect_offsets"
+      STATUS_STORAGE_TOPIC: "my_connect_statuses"
+    links:
+        - db
+    ports:
+        - "8083:8083"
