@@ -19,21 +19,8 @@ db:
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 123123
     volumes:
         - ./data:/var/lib/mysql
     ports:
       - "3306:3306"
-
-debezium:
-    image: debezium/connect:1.1
-    environment:
-      GROUP_ID: 1
-      CONFIG_STORAGE_TOPIC: "my_connect_configs"
-      OFFSET_STORAGE_TOPIC: "my_connect_offsets"
-      STATUS_STORAGE_TOPIC: "my_connect_statuses"
-      BOOTSTRAP_SERVERS: "35.197.145.200:9092"
-    links:
-        - db
-    ports:
-        - "8083:8083"
