@@ -29,14 +29,22 @@
 
 ## Setting up a multi-broker cluster
 
+    config/server.properties:
+        broker.id=0
+        listeners=PLAINTEXT://:9092
+        advertised.listeners=PLAINTEXT://34.70.106.174:9092
+        log.dirs=/tmp/kafka-logs
+
     config/server-1.properties:
         broker.id=1
-        listeners=PLAINTEXT://35.197.145.200:9093
+        listeners=PLAINTEXT://:9093
+        advertised.listeners=PLAINTEXT://34.70.106.174:9093
         log.dirs=/tmp/kafka-logs-1
  
     config/server-2.properties:
         broker.id=2
-        listeners=PLAINTEXT://35.197.145.200:9094
+        listeners=PLAINTEXT://:9094
+        advertised.listeners=PLAINTEXT://34.70.106.174:9094
         log.dirs=/tmp/kafka-logs-2
 
 ## Describe topic
