@@ -18,7 +18,7 @@ Install sample data:
 
     php bin/magento sampledata:deploy
 
-*If you’re installing sample data after installing Magento, you must also run the following command to update the database and schema in the <magento_root> folder:*
+__*If you’re installing sample data after installing Magento, you must also run the following command to update the database and schema in the <magento_root> folder:*__
 
     php bin/magento setup:upgrade
 
