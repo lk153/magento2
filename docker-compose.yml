@@ -9,10 +9,12 @@ web:
     links:
         - php
 php:
-    image: php:7-fpm
+    build: './docker/php'
     volumes:
         - ./code:/code
         - ./config:/config
+    links:
+        - db
 
 db:
     image: mysql

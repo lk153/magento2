@@ -7,6 +7,8 @@
 ## Kafka
 
     nohup bin/kafka-server-start.sh config/server.properties &
+    nohup bin/kafka-server-start.sh config/server-1.properties &
+    nohup bin/kafka-server-start.sh config/server-2.properties &
 
 ## Create topic
 
