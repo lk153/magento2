@@ -8,17 +8,25 @@ Public Key: __6ea21b68b69b400dc5de77cebe8c7baa__
 
 Private Key: __39a473ce454d4ff2a83e36b66e0ad38d__
 
+* Prepare database and user access:
+
+        CREATE USER 'magento'@'%' IDENTIFIED BY 'magento';
+        GRANT SUPER ON *.* TO magento@'%';
+        GRANT ALL PRIVILEGES ON *.* TO 'magento'@'%' WITH GRANT OPTION;
+        SHOW GRANTS FOR magento;
+        FLUSH PRIVILEGES;
+
 * Install magento package by composer
 
         php bin/magento setup:install --base-url=http://magentoce.local --db-host=db --db-name=magento --db-user=magento --db-password=magento --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
 
-* Deploy static content:
-
-        php bin/magento setup:static-content:deploy en_US --area frontend --theme Magento/luma -f
-
 * Install sample data:
 
         php bin/magento sampledata:deploy
+
+* Deploy static content:
+
+        php bin/magento setup:static-content:deploy en_US --area frontend --theme Magento/luma -f
 
 * __*If you’re installing sample data after installing Magento, you must also run the following command to update the database and schema in the <magento_root> folder:*__
 
